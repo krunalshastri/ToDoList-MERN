@@ -1,4 +1,4 @@
-import React, { useParams, useEffect, useState } from "react";
+import React, {useEffect, useState } from "react";
 import ListArea from "./ListArea";
 import ListItems from "./ListItems";
 import axios from "axios";
@@ -12,13 +12,11 @@ function CurTitle(props) {
             axios.get("http://localhost:5000/todoItems/" + props.title)
                 .then((finalList) => {
                     setItems(finalList.data);
-                    console.log(finalList.data);
                 }
                 );
-
         }
         setMounted(false);
-    }, [isMounted]);
+    }, [isMounted, props.title]);
 
     function addItem(newItem, list) {
         axios.post("http://localhost:5000/todoItems/add", { newItem, list })

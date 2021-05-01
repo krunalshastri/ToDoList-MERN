@@ -41,7 +41,6 @@ router.route('/add').post(function (req, res) {
         }
     );
 
-    console.log(listName);
     customList.findOne({ name: listName })
         .then((finalList) => {
             finalList.customListItems.push(I);

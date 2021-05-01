@@ -13,6 +13,10 @@ app.use(cors());
 mongoose.connect(process.env.ATLAS_URL, { useNewUrlParser: true, useUnifiedTopology: true });
 mongoose.set('useFindAndModify', false);
 
+if(process.env.NODE_ENV === "production"){
+  app.use(express.static("Frontend/build"));
+}
+
 app.use("/todoItems", itemRouter);
 
 const PORT = process.env.PORT || 5000;

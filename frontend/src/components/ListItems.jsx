@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, {useState } from "react";
 import DisplayItem from "./DisplayItem";
 
 function ListItems(props) {
@@ -37,11 +37,11 @@ function ListItems(props) {
                 type="text"
                 name="newItem"
                 placeholder="Add New Item"
-                autocomplete="off"
+                autoComplete="off"
                 onChange={handleOnChange}
                 value={newItem}
             />
-            
+
             <button
                 type="submit"
                 name="list"
