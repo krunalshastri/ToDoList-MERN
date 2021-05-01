@@ -13,11 +13,8 @@ mongoose.connect(process.env.ATLAS_URL, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
-mongoose.set("useFindAndModify", false);
 
-if (process.env.NODE_ENV === "production") {
-  app.use(express.static("frontend/build"));
-}
+mongoose.set("useFindAndModify", false);
 
 app.use("/todoItems", itemRouter);
 
