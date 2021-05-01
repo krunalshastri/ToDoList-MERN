@@ -20,7 +20,7 @@ function App() {
     return (
         <Router>
             <div>
-                <Route exact path="/:title"> <AddTitle /> </Route>
+                <Route path="/:title"> <AddTitle /> </Route>
                 {!isCustom && <Route exact path="/"> <CustomList title="Today" /> </Route>}
             </div>
             <Footer />

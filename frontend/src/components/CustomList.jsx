@@ -9,7 +9,7 @@ function CurTitle(props) {
 
     useEffect(() => {
         if (isMounted) {
-            axios.get("https://todolist-mern-app.herokuapp.com/todoItems/" + props.title)
+            axios.get("http://localhost:5000/todoItems/" + props.title)
                 .then((finalList) => {
                     setItems(finalList.data);
                 }
@@ -19,7 +19,7 @@ function CurTitle(props) {
     }, [isMounted, props.title]);
 
     function addItem(newItem, list) {
-        axios.post("https://todolist-mern-app.herokuapp.com/todoItems/add", { newItem, list })
+        axios.post("http://localhost:5000/todoItems/add", { newItem, list })
             .then(() => {
                 console.log("Added!!");
                 setMounted(true);
@@ -27,7 +27,7 @@ function CurTitle(props) {
     }
 
     function deleteItem(id, listName) {
-        axios.delete("https://todolist-mern-app.herokuapp.com/delete/" + listName + "/" + id)
+        axios.delete("http://localhost:5000/todoItems/delete/" + listName + "/" + id)
             .then(() => {
                 console.log("Deleted!!");
                 setMounted(true);
